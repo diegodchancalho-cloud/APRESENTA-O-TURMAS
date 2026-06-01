@@ -535,42 +535,6 @@ canvas.bg-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 <div class="slide" id="s12">
   <canvas class="bg-canvas" id="s12c"></canvas>
   <div class="final-glow"></div>
-  <!-- Arara Azul estilizada grande -->
-  <svg id="arara-final" class="arara-el" viewBox="0 0 340 200" width="400" style="top:10%;left:-32%;z-index:8">
-    <defs>
-      <linearGradient id="ag2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#002776"/>
-        <stop offset="28%" stop-color="#009C3B"/>
-        <stop offset="62%" stop-color="#FFDF00"/>
-        <stop offset="100%" stop-color="#FF5500"/>
-      </linearGradient>
-      <linearGradient id="ag2b" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#FFDF00"/><stop offset="100%" stop-color="#FF8800"/>
-      </linearGradient>
-    </defs>
-    <!-- corpo -->
-    <ellipse cx="170" cy="106" rx="96" ry="36" fill="url(#ag2)"/>
-    <!-- cabeça -->
-    <circle cx="256" cy="88" r="30" fill="#002776"/>
-    <circle cx="267" cy="78" r="13" fill="#FFDF00"/>
-    <ellipse cx="276" cy="77" rx="10" ry="7" fill="#E84000"/>
-    <circle cx="263" cy="74" r="5.5" fill="#fff"/>
-    <circle cx="264" cy="74" r="3" fill="#111"/>
-    <!-- bico -->
-    <path d="M280 86 L296 93 L280 97 Z" fill="url(#ag2b)"/>
-    <ellipse cx="270" cy="84" rx="11" ry="7" fill="#FFDF00" opacity=".65"/>
-    <!-- cauda longa -->
-    <path d="M74 106 L14 132 L4 170 L46 144 L28 182 L74 152 Z" fill="#002776"/>
-    <path d="M83 120 L22 146 L14 184 L54 158 L38 192 L84 162 Z" fill="#009C3B"/>
-    <path d="M92 130 L34 157 L26 188 L64 164 L48 196 L94 172 Z" fill="#FFDF00" opacity=".74"/>
-    <path d="M100 138 L46 163 L40 190 L74 170 L60 198 L102 178 Z" fill="#FF5500" opacity=".5"/>
-    <!-- asa superior -->
-    <path id="wt2" d="M136 88 Q172 40 238 70 Q212 88 170 98 Z" fill="#009C3B"/>
-    <!-- asa inferior -->
-    <path id="wb2" d="M136 122 Q172 162 238 136 Q212 120 170 114 Z" fill="#002776"/>
-    <path d="M142 90 Q177 46 235 72 Q209 89 168 99 Z" fill="#FFDF00" opacity=".5"/>
-    <path d="M142 120 Q177 158 233 134 Q207 118 166 113 Z" fill="#009C3B" opacity=".38"/>
-  </svg>
   <!-- moldura folhas -->
   <div class="leaf-frame" style="z-index:7">
     <div class="lf-tl" style="opacity:.2;font-size:120px">🌿</div>
@@ -1084,23 +1048,6 @@ function initS12canvas(){
     c:cols[Math.floor(Math.random()*cols.length)],
     a:Math.random(),va:.011
   });
-}
-function animS12(){
-  if(cur!==11){cancelAnimationFrame(s12animId);return;}
-  s12animId=requestAnimationFrame(animS12);
-  const c=document.getElementById('s12c'),x=c.getContext('2d');
-  x.fillStyle='rgba(0,8,2,.11)';x.fillRect(0,0,c.width,c.height);
-  s12ps.forEach(p=>{
-    p.x+=p.vx;p.y+=p.vy;p.a+=p.va;
-    if(p.y<0)p.y=c.height;if(p.x<0||p.x>c.width)p.vx*=-1;
-    const al=Math.abs(Math.sin(p.a))*.9+.1;
-    x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);
-    x.fillStyle=`rgba(${p.c},${al})`;x.fill();
-  });
-  // bater asas arara final
-  const t=Date.now()/600;
-  const wt2=document.getElementById('wt2'),wb2=document.getElementById('wb2');
-  if(wt2){const s=Math.sin(t)*.14+.86;wt2.setAttribute('transform',`scale(1,${s})`);wb2.setAttribute('transform',`scale(1,${2-s})`);}
 }
 
 // ══ FIM canvas ══
