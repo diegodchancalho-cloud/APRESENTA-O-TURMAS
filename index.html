@@ -156,6 +156,43 @@ canvas.bg-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   <div style="position:absolute;bottom:-16px;left:-14px;font-size:120px;opacity:.09;transform:rotate(20deg) scaleY(-1);z-index:2;pointer-events:none">🌿</div>
   <div style="position:absolute;bottom:-16px;right:-14px;font-size:120px;opacity:.09;transform:rotate(-20deg) scale(-1,-1);z-index:2;pointer-events:none">🌿</div>
 
+  <!-- Arara atravessa -->
+  <svg id="arara-intro" class="arara-el" viewBox="0 0 280 160" width="340" style="top:20%;left:-28%">
+    <defs>
+      <linearGradient id="ag1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#002776"/>
+        <stop offset="32%" stop-color="#009C3B"/>
+        <stop offset="64%" stop-color="#FFDF00"/>
+        <stop offset="100%" stop-color="#FF5500"/>
+      </linearGradient>
+      <linearGradient id="ag1b" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#FFDF00"/>
+        <stop offset="100%" stop-color="#FF8800"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="140" cy="88" rx="78" ry="30" fill="url(#ag1)"/>
+    <circle cx="210" cy="72" r="24" fill="#002776"/>
+    <circle cx="220" cy="63" r="10" fill="#FFDF00"/>
+    <ellipse cx="228" cy="62" rx="8" ry="5.5" fill="#E84000"/>
+    <circle cx="217" cy="60" r="4" fill="#fff"/>
+    <circle cx="218" cy="60" r="2.2" fill="#111"/>
+    <path d="M232 70 L244 76 L232 79 Z" fill="url(#ag1b)"/>
+    <path d="M64 88 L12 110 L4 142 L38 118 L24 152 L64 124 Z" fill="#002776"/>
+    <path d="M72 100 L20 122 L14 152 L46 128 L34 160 L74 132 Z" fill="#009C3B"/>
+    <path d="M80 108 L30 130 L22 160 L54 136 L42 165 L82 140 Z" fill="#FFDF00" opacity=".72"/>
+    <path id="wi" d="M112 74 Q142 34 196 58 Q174 72 140 80 Z" fill="#009C3B"/>
+    <path id="wb" d="M112 100 Q142 134 196 110 Q174 98 140 94 Z" fill="#002776"/>
+    <path d="M117 76 Q146 38 193 60 Q171 73 138 81 Z" fill="#FFDF00" opacity=".52"/>
+  </svg>
+
+  <div id="intro-content">
+    <div id="intro-title">TODOS JOGAM<br>NO MESMO TIME</div>
+    <div class="iline" id="iline"></div>
+    <div id="intro-sub">NOSSA COPA 2026</div>
+  </div>
+  <button id="skip-btn" onclick="skipIntro()">PULAR ↗</button>
+</div>
+
 <!-- ═══════════════════ SLIDES ═══════════════════ -->
 <div id="slides">
 
@@ -215,8 +252,8 @@ canvas.bg-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   <div class="slide-content">
     <div class="sub-title" style="margin-bottom:14px">⚽ MISSÃO ACEITA ⚽</div>
     <div class="big-title" style="font-size:clamp(36px,6vw,80px)">Não será apenas<br><span class="highlight">um jogo.</span></div>
-    <div style="font-family:'Montserrat',sans-serif;font-weight:300;color:rgba(255,255,255,.72);font-size:clamp(13px,1.8vw,18px);line-height:1.7">
-        Mas essa não será uma competição apenas de futebol.
+    <div style="font-family:'Montserrat',sans-serif;font-weight:600;color:var(--verde);font-size:clamp(13px,1.8vw,18px);line-height:1.7;letter-spacing:1px">
+        Será uma competição de criatividade, participação, união e solidariedade.
       </div>
     <div style="margin-top:20px;background:rgba(255,223,0,.06);border:1px solid rgba(255,223,0,.2);border-radius:10px;padding:13px 22px;max-width:700px;margin-left:auto;margin-right:auto">
       <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--amarelo);letter-spacing:3px">⭐ A seleção que conquistar mais de um título poderá se tornar a grande campeã geral da Nossa Copa ⭐</span>
